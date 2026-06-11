@@ -12,7 +12,7 @@ import {
 import { LiquidButton } from '@/components/ui/liquid-glass-button'
 import { ScrollExpandMedia } from '@/components/blocks/scroll-expansion-hero'
 import { HowItWorksSection }      from '@/components/sections/HowItWorksSection'
-import { BeforeAfterSection }     from '@/components/sections/BeforeAfterSection'
+
 import { PriceCalculatorSection } from '@/components/sections/PriceCalculatorSection'
 import { GiftSection }            from '@/components/sections/GiftSection'
 import { ReviewsSection }         from '@/components/sections/ReviewsSection'
@@ -21,6 +21,16 @@ import { FAQSection }             from '@/components/sections/FAQSection'
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const PIXELATOR = 'http://91.229.10.93:5000/'
+
+const VIDEO_URL = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260602_150901_c45b90ec-18d7-42ff-90e2-b95d7109e330.mp4'
+
+const NAV_LINKS = [
+  { label: 'О конструкторе', href: '#how-it-works' },
+  { label: 'Каталог', href: '#catalog' },
+  { label: 'Пикселизатор', href: PIXELATOR },
+  { label: 'Отзывы', href: '#reviews' },
+  { label: 'Контакты', href: '#contacts' },
+]
 
 const LOGO_BLACK_URL = 'https://gekkotoys.ru/img/logoBlack.svg'
 
@@ -369,9 +379,19 @@ export default function App() {
             />
           </a>
           <div className="hidden sm:flex items-center gap-6 flex-1">
-            {['О конструкторе', 'Каталог', 'Пикселизатор', 'Блог'].map(link => (
-              <a key={link} href="#" className="text-gray-800 dark:text-[#f0ede6] text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap">
-                {link}
+            {NAV_LINKS.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                onClick={href.startsWith('#') ? (e) => {
+                  e.preventDefault()
+                  document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+                } : undefined}
+                target={href.startsWith('http') ? '_blank' : undefined}
+                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="text-gray-800 dark:text-[#f0ede6] text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap"
+              >
+                {label}
               </a>
             ))}
           </div>
@@ -400,7 +420,7 @@ export default function App() {
       <ScrollExpandMedia
         mediaType="video"
         mediaSrc="/hero.mp4"
-        bgImageSrc="https://gekkotoys.ru/cache/images/0Арт_конструктор/800_cover_92_1734352004_S-Ojpg.webp"
+        bgVideoSrc={VIDEO_URL}
         title="ГЕККО АРТ"
         date="PIXEL ART CONSTRUCTOR"
         scrollToExpand="Прокрути, чтобы открыть ↓"
@@ -413,13 +433,12 @@ export default function App() {
       ════════════════════════════════════════════════ */}
       <div className="relative z-10 bg-[#faf9f5] dark:bg-[#1c1a15]">
 
-        <BeforeAfterSection />
         <PriceCalculatorSection />
 
-        <CatalogSection />
+        <div id="catalog"><CatalogSection /></div>
 
         <GiftSection />
-        <ReviewsSection />
+        <div id="reviews"><ReviewsSection /></div>
         <FAQSection />
 
         {/* ════════════════════════════════════════════════
@@ -503,7 +522,7 @@ export default function App() {
         {/* ════════════════════════════════════════════════
             SCREEN 3 — CONTACTS + MAP + NEWS
         ════════════════════════════════════════════════ */}
-        <section className="bg-gray-50 dark:bg-[#1e1b14] px-6 sm:px-10 py-20">
+        <section id="contacts" className="bg-gray-50 dark:bg-[#1e1b14] px-6 sm:px-10 py-20">
           <div className="max-w-6xl mx-auto">
 
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 items-start mb-20">

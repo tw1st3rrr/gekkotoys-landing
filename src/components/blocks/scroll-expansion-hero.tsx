@@ -10,7 +10,8 @@ interface ScrollExpandMediaProps {
   mediaType?: 'video' | 'image'
   mediaSrc: string
   posterSrc?: string
-  bgImageSrc: string
+  bgImageSrc?: string
+  bgVideoSrc?: string
   title?: string
   date?: string
   scrollToExpand?: string
@@ -23,6 +24,7 @@ export function ScrollExpandMedia({
   mediaSrc,
   posterSrc,
   bgImageSrc,
+  bgVideoSrc,
   title,
   date,
   scrollToExpand,
@@ -116,18 +118,26 @@ export function ScrollExpandMedia({
       <section className="relative flex flex-col items-center justify-start min-h-[100dvh]">
         <div className="relative w-full flex flex-col items-center min-h-[100dvh]">
 
-          {/* Fading background image */}
+          {/* Fading background */}
           <motion.div
             className="absolute inset-0 z-0 h-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 - scrollProgress }}
             transition={{ duration: 0.1 }}
           >
-            <img
-              src={bgImageSrc}
-              alt=""
-              className="w-screen h-screen object-cover object-center"
-            />
+            {bgVideoSrc ? (
+              <video
+                src={bgVideoSrc}
+                autoPlay muted loop playsInline
+                className="w-screen h-screen object-cover object-center"
+              />
+            ) : bgImageSrc ? (
+              <img
+                src={bgImageSrc}
+                alt=""
+                className="w-screen h-screen object-cover object-center"
+              />
+            ) : null}
             <div className="absolute inset-0 bg-black/40" />
           </motion.div>
 
