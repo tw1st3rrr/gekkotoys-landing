@@ -117,8 +117,8 @@ export function ScrollExpandMedia({
 
   return (
     <div ref={sectionRef} className="overflow-x-hidden">
-      <section className="relative flex flex-col items-center justify-start min-h-[100dvh]">
-        <div className="relative w-full flex flex-col items-center min-h-[100dvh]">
+      <section className="relative flex flex-col items-center justify-start min-h-[80dvh]">
+        <div className="relative w-full flex flex-col items-center min-h-[80dvh]">
 
           {/* Fading background */}
           <motion.div
@@ -144,7 +144,7 @@ export function ScrollExpandMedia({
           </motion.div>
 
           <div className="container mx-auto flex flex-col items-center justify-start relative z-10">
-            <div className="flex flex-col items-center justify-center w-full h-[100dvh] relative">
+            <div className="flex flex-col items-center justify-center w-full h-[80dvh] relative">
 
               {/* Expanding media */}
               <div
@@ -153,7 +153,7 @@ export function ScrollExpandMedia({
                   width: `${mediaWidth}px`,
                   height: `${mediaHeight}px`,
                   maxWidth: '95vw',
-                  maxHeight: '85vh',
+                  maxHeight: '70vh',
                   boxShadow: '0 0 60px rgba(0,0,0,0.4)',
                 }}
               >

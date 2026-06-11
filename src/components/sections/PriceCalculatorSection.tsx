@@ -189,7 +189,7 @@ function Card({ plan, index }: { plan: Plan; index: number }) {
       whileInView={{ y: plan.isPopular && isDesktop ? -20 : 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, type: 'spring', stiffness: 100, damping: 20, delay: index * 0.15 }}
-      className={`rounded-2xl p-8 flex flex-col relative bg-[#faf9f5]/80 dark:bg-[#242018]/80 backdrop-blur-sm ${
+      className={`h-full rounded-2xl p-8 flex flex-col relative bg-[#faf9f5]/80 dark:bg-[#242018]/80 backdrop-blur-sm ${
         plan.isPopular
           ? 'border-2 border-[#c96442] shadow-xl'
           : 'border border-gray-200 dark:border-white/10'
@@ -270,7 +270,7 @@ export function PriceCalculatorSection() {
             Все наборы включают базовые платы, кирпичики, схему сборки и доставку по России.
           </p>
           <Toggle />
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 items-start gap-8">
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
             {PLANS.map((plan, i) => <Card key={i} plan={plan} index={i} />)}
           </div>
           <p className="text-center text-xs text-[#3d3929]/40 dark:text-[#f0ede6]/40 mt-10">
