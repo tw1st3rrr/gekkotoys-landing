@@ -1,151 +1,159 @@
 import * as React from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
-import { Facebook, Instagram, Linkedin, Moon, Send, Sun } from "lucide-react"
+import { Label } from "@/components/ui/label"
+import { Moon, Sun, Send } from "lucide-react"
+
+const SHOP_LINKS = [
+  { text: "Каталог наборов", url: "https://gekkotoys.ru/catalog" },
+  { text: "Пикселизатор", url: "http://91.229.10.93:5000/" },
+  { text: "Доставка и оплата", url: "https://gekkotoys.ru/delivery" },
+  { text: "Гарантия и возврат", url: "https://gekkotoys.ru/return" },
+  { text: "Оптовые заказы", url: "#contacts" },
+]
+
+const COMPANY_LINKS = [
+  { text: "О ГЕККО ТОЙС", url: "https://gekkotoys.ru/about" },
+  { text: "Как это работает", url: "#how-it-works" },
+  { text: "Отзывы", url: "#reviews" },
+  { text: "FAQ", url: "#faq" },
+  { text: "Контакты", url: "#contacts" },
+]
 
 function Footerdemo() {
-  const [isDarkMode, setIsDarkMode] = React.useState(false)
+  const [isDarkMode, setIsDarkMode] = React.useState(
+    () => document.documentElement.classList.contains("dark")
+  )
 
   React.useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark")
+      localStorage.setItem("theme", "dark")
     } else {
       document.documentElement.classList.remove("dark")
+      localStorage.setItem("theme", "light")
     }
   }, [isDarkMode])
 
   return (
-    <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
-      <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="border-t border-gray-100 dark:border-white/10 bg-[#faf9f5] dark:bg-[#1c1a15] text-[#3d3929] dark:text-[#f0ede6]">
 
-          {/* Newsletter */}
-          <div className="relative">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight">Будьте в курсе</h2>
-            <p className="mb-6 text-muted-foreground">
-              Новинки, акции и идеи для пиксельного творчества — прямо на почту.
-            </p>
-            <form className="relative">
-              <Input
-                type="email"
-                placeholder="Ваш email"
-                className="pr-12 backdrop-blur-sm"
+      {/* CTA strip — like Mozabrick "Уже купили?" */}
+      <div className="border-b border-gray-100 dark:border-white/10">
+        <div className="max-w-6xl mx-auto px-6 sm:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <p className="font-bold text-sm text-[#3d3929] dark:text-[#f0ede6]">Уже купили набор ГЕККО?</p>
+            <p className="text-xs text-[#3d3929]/60 dark:text-[#f0ede6]/60 mt-0.5">Загрузи фото и получи схему сборки по ссылке</p>
+          </div>
+          <a
+            href="http://91.229.10.93:5000/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-2xl bg-[#c96442] text-white text-sm font-bold hover:bg-[#b5573a] transition-colors shrink-0"
+          >
+            <Send className="h-4 w-4" />
+            Перейти в пикселизатор
+          </a>
+        </div>
+      </div>
+
+      {/* Main columns */}
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 py-14">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+
+          {/* Brand */}
+          <div className="lg:col-span-1">
+            <div className="flex items-center gap-2 mb-4">
+              <img
+                src="https://gekkotoys.ru/img/logoBlack.svg"
+                alt="ГЕККО ТОЙС"
+                className="h-7 w-auto dark:brightness-0 dark:invert"
               />
-              <Button
-                type="submit"
-                size="icon"
-                className="absolute right-1 top-1 h-8 w-8 rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
-              >
-                <Send className="h-4 w-4" />
-                <span className="sr-only">Подписаться</span>
-              </Button>
-            </form>
-            <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="mb-4 text-lg font-semibold">Навигация</h3>
-            <nav className="space-y-2 text-sm">
-              <a href="https://gekkotoys.ru" className="block transition-colors hover:text-primary">
-                Главная
-              </a>
-              <a href="https://gekkotoys.ru/catalog" className="block transition-colors hover:text-primary">
-                Каталог наборов
-              </a>
-              <a href="http://91.229.10.93:5000/" className="block transition-colors hover:text-primary">
-                Пикселизатор
-              </a>
-              <a href="https://gekkotoys.ru/delivery" className="block transition-colors hover:text-primary">
-                Доставка и оплата
-              </a>
-              <a href="#contact" className="block transition-colors hover:text-primary">
-                Контакты
-              </a>
-            </nav>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="mb-4 text-lg font-semibold">Контакты</h3>
-            <address className="space-y-2 text-sm not-italic text-muted-foreground">
-              <p>Россия, Москва</p>
-              <p>ООО «Алекс Тойс»</p>
+            </div>
+            <p className="text-sm text-[#3d3929]/60 dark:text-[#f0ede6]/60 leading-relaxed mb-5">
+              Пиксельный конструктор из уникальных фишек. Собери картину из своего фото или выбери готовый дизайн.
+            </p>
+            <address className="not-italic space-y-1.5 text-sm text-[#3d3929]/70 dark:text-[#f0ede6]/60">
               <p>
-                <a href="tel:+74951234567" className="hover:text-primary transition-colors">
-                  +7 (495) 123-45-67
+                <a href="tel:+74991650423" className="hover:text-[#c96442] transition-colors">
+                  8-499-165-04-23
                 </a>
               </p>
               <p>
-                <a href="mailto:oooalextoys@mail.ru" className="hover:text-primary transition-colors">
+                <a href="mailto:oooalextoys@mail.ru" className="hover:text-[#c96442] transition-colors">
                   oooalextoys@mail.ru
                 </a>
               </p>
+              <p className="text-[#3d3929]/50 dark:text-[#f0ede6]/40">Пн–Пт: 10:00–18:00</p>
             </address>
           </div>
 
-          {/* Social + dark mode */}
-          <div className="relative">
-            <h3 className="mb-4 text-lg font-semibold">Мы в соцсетях</h3>
-            <div className="mb-6 flex space-x-3">
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full" asChild>
-                      <a href="https://vk.com/gekkotoys" target="_blank" rel="noopener noreferrer">
-                        <Facebook className="h-4 w-4" />
-                        <span className="sr-only">ВКонтакте</span>
-                      </a>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent><p>ВКонтакте</p></TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full" asChild>
-                      <a href="https://instagram.com/gekkotoys" target="_blank" rel="noopener noreferrer">
-                        <Instagram className="h-4 w-4" />
-                        <span className="sr-only">Instagram</span>
-                      </a>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent><p>Instagram</p></TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full" asChild>
-                      <a href="https://t.me/gekkotoys" target="_blank" rel="noopener noreferrer">
-                        <Linkedin className="h-4 w-4" />
-                        <span className="sr-only">Telegram</span>
-                      </a>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent><p>Telegram</p></TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </div>
+          {/* Магазин */}
+          <div>
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#c96442]">Магазин</h3>
+            <ul className="space-y-3">
+              {SHOP_LINKS.map((link) => (
+                <li key={link.text}>
+                  <a
+                    href={link.url}
+                    className="text-sm text-[#3d3929]/70 dark:text-[#f0ede6]/60 hover:text-[#3d3929] dark:hover:text-[#f0ede6] transition-colors"
+                  >
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <div className="flex items-center space-x-2">
-              <Sun className="h-4 w-4" />
+          {/* Компания */}
+          <div>
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#c96442]">Компания</h3>
+            <ul className="space-y-3">
+              {COMPANY_LINKS.map((link) => (
+                <li key={link.text}>
+                  <a
+                    href={link.url}
+                    className="text-sm text-[#3d3929]/70 dark:text-[#f0ede6]/60 hover:text-[#3d3929] dark:hover:text-[#f0ede6] transition-colors"
+                  >
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Соцсети + тема */}
+          <div>
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#c96442]">Мы в соцсетях</h3>
+            <ul className="space-y-3 mb-8">
+              <li>
+                <a href="https://vk.com/gekkotoys" target="_blank" rel="noopener noreferrer"
+                  className="text-sm text-[#3d3929]/70 dark:text-[#f0ede6]/60 hover:text-[#3d3929] dark:hover:text-[#f0ede6] transition-colors flex items-center gap-2">
+                  <span className="text-[#c96442] text-base leading-none">VK</span> ВКонтакте
+                </a>
+              </li>
+              <li>
+                <a href="https://instagram.com/gekkotoys" target="_blank" rel="noopener noreferrer"
+                  className="text-sm text-[#3d3929]/70 dark:text-[#f0ede6]/60 hover:text-[#3d3929] dark:hover:text-[#f0ede6] transition-colors flex items-center gap-2">
+                  <span className="text-[#c96442] text-base leading-none">IG</span> Instagram
+                </a>
+              </li>
+              <li>
+                <a href="https://t.me/gekkotoys" target="_blank" rel="noopener noreferrer"
+                  className="text-sm text-[#3d3929]/70 dark:text-[#f0ede6]/60 hover:text-[#3d3929] dark:hover:text-[#f0ede6] transition-colors flex items-center gap-2">
+                  <span className="text-[#c96442] text-base leading-none">TG</span> Telegram
+                </a>
+              </li>
+            </ul>
+
+            <div className="flex items-center gap-2">
+              <Sun className="h-4 w-4 text-[#3d3929]/50 dark:text-[#f0ede6]/50" />
               <Switch
-                id="dark-mode"
+                id="footer-dark-mode"
                 checked={isDarkMode}
                 onCheckedChange={setIsDarkMode}
               />
-              <Moon className="h-4 w-4" />
-              <Label htmlFor="dark-mode" className="sr-only">
+              <Moon className="h-4 w-4 text-[#3d3929]/50 dark:text-[#f0ede6]/50" />
+              <Label htmlFor="footer-dark-mode" className="text-xs text-[#3d3929]/50 dark:text-[#f0ede6]/40 ml-1">
                 Тёмная тема
               </Label>
             </div>
@@ -153,16 +161,19 @@ function Footerdemo() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
-          <p className="text-sm text-muted-foreground">
-            © 2024 ГЕККО ТОЙС. Все права защищены.
+        <div className="mt-12 pt-8 border-t border-gray-100 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-[#3d3929]/40 dark:text-[#f0ede6]/30">
+            © 2025 ГЕККО ТОЙС · ООО «Алекс Тойс». Все права защищены.
           </p>
-          <nav className="flex gap-4 text-sm">
-            <a href="#" className="transition-colors hover:text-primary text-muted-foreground">
+          <nav className="flex flex-wrap justify-center gap-4 text-xs text-[#3d3929]/40 dark:text-[#f0ede6]/30">
+            <a href="https://gekkotoys.ru/privacy" className="hover:text-[#c96442] transition-colors">
               Политика конфиденциальности
             </a>
-            <a href="#" className="transition-colors hover:text-primary text-muted-foreground">
+            <a href="https://gekkotoys.ru/terms" className="hover:text-[#c96442] transition-colors">
               Условия использования
+            </a>
+            <a href="https://gekkotoys.ru/cookies" className="hover:text-[#c96442] transition-colors">
+              Политика cookies
             </a>
           </nav>
         </div>

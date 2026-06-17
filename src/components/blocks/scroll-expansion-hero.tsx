@@ -131,7 +131,7 @@ export function ScrollExpandMedia({
             className="absolute inset-0 z-0 h-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 - scrollProgress }}
-            transition={{ duration: 0.1 }}
+            transition={{ duration: 0.35, ease: 'easeOut' }}
           >
             {bgVideoSrc ? (
               <BoomerangVideoBg src={bgVideoSrc} className="w-full h-full object-cover object-center" />
@@ -157,6 +157,7 @@ export function ScrollExpandMedia({
                   maxWidth: '95vw',
                   maxHeight: '85vh',
                   boxShadow: '0 0 60px rgba(0,0,0,0.4)',
+                  transition: 'width 0.18s ease-out, height 0.18s ease-out',
                 }}
               >
                 {mediaType === 'video' ? (
@@ -172,7 +173,7 @@ export function ScrollExpandMedia({
                       className="absolute inset-0 bg-black/30 rounded-2xl"
                       initial={{ opacity: 0.6 }}
                       animate={{ opacity: 0.5 - scrollProgress * 0.3 }}
-                      transition={{ duration: 0.2 }}
+                      transition={{ duration: 0.35, ease: 'easeOut' }}
                     />
                   </div>
                 ) : (
@@ -186,7 +187,7 @@ export function ScrollExpandMedia({
                       className="absolute inset-0 bg-black/40 rounded-2xl"
                       initial={{ opacity: 0.7 }}
                       animate={{ opacity: 0.7 - scrollProgress * 0.3 }}
-                      transition={{ duration: 0.2 }}
+                      transition={{ duration: 0.35, ease: 'easeOut' }}
                     />
                   </div>
                 )}
@@ -196,7 +197,7 @@ export function ScrollExpandMedia({
                   {date && (
                     <p
                       className="text-sm font-semibold tracking-widest text-white/70 uppercase"
-                      style={{ transform: `translateX(-${textShift}vw)` }}
+                      style={{ transform: `translateX(-${textShift}vw)`, transition: 'transform 0.18s ease-out' }}
                     >
                       {date}
                     </p>
@@ -204,7 +205,7 @@ export function ScrollExpandMedia({
                   {scrollToExpand && (
                     <p
                       className="text-white/60 text-sm font-medium mt-1"
-                      style={{ transform: `translateX(${textShift}vw)` }}
+                      style={{ transform: `translateX(${textShift}vw)`, transition: 'transform 0.18s ease-out' }}
                     >
                       {scrollToExpand}
                     </p>
@@ -216,7 +217,7 @@ export function ScrollExpandMedia({
               {heroContent && (
                 <div
                   className="absolute bottom-0 left-0 right-0 z-10"
-                  style={{ opacity: Math.max(0, 1 - scrollProgress * 2.5), transition: 'opacity 0.1s' }}
+                  style={{ opacity: Math.max(0, 1 - scrollProgress * 2.5), transition: 'opacity 0.25s ease-out' }}
                 >
                   {heroContent}
                 </div>
@@ -229,13 +230,13 @@ export function ScrollExpandMedia({
               >
                 <motion.h2
                   className="text-4xl md:text-6xl lg:text-7xl font-black text-white drop-shadow-xl"
-                  style={{ transform: `translateX(-${textShift}vw)` }}
+                  style={{ transform: `translateX(-${textShift}vw)`, transition: 'transform 0.18s ease-out' }}
                 >
                   {firstWord}
                 </motion.h2>
                 <motion.h2
                   className="text-4xl md:text-6xl lg:text-7xl font-black text-white drop-shadow-xl"
-                  style={{ transform: `translateX(${textShift}vw)` }}
+                  style={{ transform: `translateX(${textShift}vw)`, transition: 'transform 0.18s ease-out' }}
                 >
                   {restOfTitle}
                 </motion.h2>

@@ -47,26 +47,6 @@ const SERVICES = [
   'Другое',
 ]
 
-const NEWS = [
-  {
-    src: 'https://gekkotoys.ru/cache/images/news/800_cover_92_1737361085_Снимокэкрана2025-01-20111335png.webp',
-    date: '20.01.2025',
-    title: 'ГЕККО АРТ теперь на маркетплейсах',
-    excerpt: 'Наборы конструктора ГЕККО АРТ стали доступны на Wildberries и Ozon.',
-  },
-  {
-    src: 'https://gekkotoys.ru/cache/images/2Д/Новый_год_2д_А5/800_cover_92_1734084112_карточка38025jpg.webp',
-    date: '13.12.2024',
-    title: 'Новогодние наборы ГЕККО АРТ',
-    excerpt: 'Специальные праздничные наборы для подарка — успейте заказать к праздникам.',
-  },
-  {
-    src: 'https://gekkotoys.ru/cache/images/800_cover_92_1726841581_Приглашение_Экспо(2)jpg.webp',
-    date: '20.09.2024',
-    title: 'ГЕККО на выставке',
-    excerpt: 'Приглашаем посетить наш стенд на выставке игрушек и конструкторов.',
-  },
-]
 
 // ─── SocialBtn ────────────────────────────────────────────────────────────────
 
@@ -607,36 +587,6 @@ export default function App() {
               </div>
             </div>
 
-            <div>
-              <h2 className="text-3xl font-black text-gray-900 dark:text-[#f0ede6] mb-8">Новости</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                {NEWS.map((item, i) => (
-                  <div key={i} className="rounded-2xl border border-gray-100 dark:border-white/10 bg-white dark:bg-[#242018] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
-                    <div className="h-44 overflow-hidden relative">
-                      {item.src ? (
-                        <img src={item.src} alt={item.title} className="w-full h-full object-cover"
-                          onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
-                      ) : null}
-                    </div>
-                    <div className="p-5">
-                      <div className="text-xs text-gray-400 dark:text-[#f0ede6]/40 font-semibold mb-2">{item.date}</div>
-                      <div className="font-bold text-gray-900 dark:text-[#f0ede6] text-base leading-snug mb-2">{item.title}</div>
-                      <div className="text-sm text-gray-500 dark:text-[#f0ede6]/60 leading-relaxed mb-4">{item.excerpt}</div>
-                      <a href="https://gekkotoys.ru/news" target="_blank" rel="noopener noreferrer"
-                        className="text-sm font-bold text-green-700 dark:text-green-400 hover:text-green-500 transition-colors">
-                        Читать →
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="text-center">
-                <a href="https://gekkotoys.ru/news" target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-3 rounded-xl border-2 border-gray-200 dark:border-white/20 text-gray-700 dark:text-[#f0ede6]/70 font-bold text-sm hover:border-green-400 hover:text-green-700 dark:hover:text-green-400 transition-colors">
-                  Все новости →
-                </a>
-              </div>
-            </div>
 
           </div>
         </section>
