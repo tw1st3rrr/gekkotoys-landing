@@ -64,7 +64,7 @@ function Footerdemo() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <img
-                src="https://gekkotoys.ru/img/logoBlack.svg"
+                src="/logo-black.svg"
                 alt="ГЕККО ТОЙС"
                 className="h-7 w-auto dark:brightness-0 dark:invert"
               />

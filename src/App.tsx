@@ -33,7 +33,7 @@ const NAV_LINKS = [
   { label: 'Контакты', href: '#contacts' },
 ]
 
-const LOGO_BLACK_URL = 'https://gekkotoys.ru/img/logoBlack.svg'
+const LOGO_BLACK_URL = '/logo-black.svg'
 
 const SERVICES = [
   'Стандартный набор',
