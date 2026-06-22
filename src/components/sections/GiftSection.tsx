@@ -20,13 +20,13 @@ const BULLETS = [
 
 export function GiftSection() {
   return (
-    <section className="bg-[#3d3929] dark:bg-[#252118] px-6 sm:px-10 py-20 sm:py-28">
+    <section className="bg-[#0D3A35] dark:bg-[#0D2E28] px-6 sm:px-10 py-20 sm:py-28">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Left: text */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#c96442] mb-4">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#7BBFB0] mb-4">
               / подарок
             </p>
             <h2 className="text-3xl sm:text-4xl font-black text-white mb-5">
@@ -37,7 +37,7 @@ export function GiftSection() {
             </p>
             <a
               href="http://91.229.10.93:5000/"
-              className="inline-flex items-center gap-2 bg-white text-[#3d3929] font-bold text-sm px-8 py-4 rounded-2xl hover:bg-white/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-white text-[#0D3A35] font-bold text-sm px-8 py-4 rounded-2xl hover:bg-white/90 transition-colors"
             >
               Создать подарок →
             </a>

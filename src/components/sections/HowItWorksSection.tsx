@@ -28,10 +28,10 @@ export function HowItWorksSection() {
   return (
     <section id="how-it-works" className="relative px-6 sm:px-10 py-14 sm:py-20">
       <div className="max-w-6xl mx-auto">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[#c96442] mb-3">
+        <p className="text-xs font-semibold uppercase tracking-widest text-[#276152] dark:text-[#7BBFB0] mb-3">
           / как это работает
         </p>
-        <h2 className="text-3xl sm:text-4xl font-black text-[#3d3929] dark:text-[#f0ede6] mb-10">
+        <h2 className="text-3xl sm:text-4xl font-black font-display text-[#0D3A35] dark:text-[#ECEFE9] mb-10">
           Три шага до вашей картины
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

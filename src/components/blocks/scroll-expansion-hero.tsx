@@ -5,7 +5,7 @@ import {
   ReactNode,
 } from 'react'
 import { motion } from 'motion/react'
-import BoomerangVideoBg from '../../BoomerangVideoBg'
+import SeamlessVideoBg from '../../SeamlessVideoBg'
 
 interface ScrollExpandMediaProps {
   mediaType?: 'video' | 'image'
@@ -13,6 +13,7 @@ interface ScrollExpandMediaProps {
   posterSrc?: string
   bgImageSrc?: string
   bgVideoSrc?: string
+  bgVideoFilter?: string
   title?: string
   date?: string
   scrollToExpand?: string
@@ -27,6 +28,7 @@ export function ScrollExpandMedia({
   posterSrc,
   bgImageSrc,
   bgVideoSrc,
+  bgVideoFilter,
   title,
   date,
   scrollToExpand,
@@ -134,7 +136,7 @@ export function ScrollExpandMedia({
             transition={{ duration: 0.35, ease: 'easeOut' }}
           >
             {bgVideoSrc ? (
-              <BoomerangVideoBg src={bgVideoSrc} className="w-full h-full object-cover object-center" />
+              <SeamlessVideoBg src={bgVideoSrc} filter={bgVideoFilter} className="absolute inset-0 w-full h-full" />
             ) : bgImageSrc ? (
               <img
                 src={bgImageSrc}
@@ -142,7 +144,7 @@ export function ScrollExpandMedia({
                 className="w-full h-full object-cover object-center"
               />
             ) : null}
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(160deg, rgba(13,58,53,0.72) 0%, rgba(39,97,82,0.55) 50%, rgba(13,58,53,0.80) 100%)' }} />
           </motion.div>
 
           <div className="container mx-auto flex flex-col items-center justify-start relative z-10">

@@ -42,10 +42,10 @@ export function FAQSection() {
   return (
     <section className="relative px-6 sm:px-10 py-20 sm:py-28">
       <div className="max-w-6xl mx-auto">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[#c96442] mb-4">
+        <p className="text-xs font-semibold uppercase tracking-widest text-[#276152] dark:text-[#7BBFB0] mb-4">
           / вопросы и ответы
         </p>
-        <h2 className="text-3xl sm:text-4xl font-black text-[#3d3929] dark:text-[#f0ede6] mb-12">
+        <h2 className="text-3xl sm:text-4xl font-black font-display text-[#0D3A35] dark:text-[#ECEFE9] mb-12">
           Частые вопросы
         </h2>
 
@@ -56,18 +56,18 @@ export function FAQSection() {
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between gap-4 py-5 text-left group"
               >
-                <span className="text-base font-bold text-[#3d3929] dark:text-[#f0ede6] group-hover:text-[#c96442] transition-colors">
+                <span className="text-base font-bold text-[#0D3A35] dark:text-[#ECEFE9] group-hover:text-[#276152] transition-colors">
                   {item.q}
                 </span>
                 <span
-                  className="shrink-0 w-6 h-6 rounded-full border border-gray-200 dark:border-white/20 flex items-center justify-center text-[#3d3929]/50 dark:text-[#f0ede6]/50 transition-transform duration-200"
+                  className="shrink-0 w-6 h-6 rounded-full border border-gray-200 dark:border-white/20 flex items-center justify-center text-[#0D3A35]/50 dark:text-[#ECEFE9]/50 transition-transform duration-200"
                   style={{ transform: open === i ? 'rotate(45deg)' : 'rotate(0deg)' }}
                 >
                   +
                 </span>
               </button>
               {open === i && (
-                <p className="text-sm text-[#3d3929]/60 dark:text-[#f0ede6]/60 leading-relaxed pb-5">
+                <p className="text-sm text-[#0D3A35]/60 dark:text-[#ECEFE9]/60 leading-relaxed pb-5">
                   {item.a}
                 </p>
               )}
@@ -77,8 +77,8 @@ export function FAQSection() {
 
         {/* Disclaimer */}
         <div className="max-w-3xl mt-12 p-5 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10">
-          <p className="text-xs text-[#3d3929]/40 dark:text-[#f0ede6]/40 leading-relaxed">
-            <strong className="text-[#3d3929]/60 dark:text-[#f0ede6]/60">Важно знать:</strong> Готовая мозаика является художественной интерпретацией исходного фото.
+          <p className="text-xs text-[#0D3A35]/40 dark:text-[#ECEFE9]/40 leading-relaxed">
+            <strong className="text-[#0D3A35]/60 dark:text-[#ECEFE9]/60">Важно знать:</strong> Готовая мозаика является художественной интерпретацией исходного фото.
             Из-за пикселизации финальный результат может отличаться от оригинала — это особенность формата, а не дефект.
             Рекомендуем посмотреть превью в пикселизаторе перед оформлением заказа.
           </p>

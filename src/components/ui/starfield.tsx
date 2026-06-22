@@ -30,7 +30,7 @@ function Star({
 
   return (
     <motion.div
-      className="absolute bg-[#3d3929] dark:bg-[#f0ede6] rounded-full"
+      className="absolute bg-[#0D3A35] dark:bg-[#ECEFE9] rounded-full"
       style={{ top: pos.top, left: pos.left, width: `${size}px`, height: `${size}px`, x: sx, y: sy }}
       initial={{ opacity: 0 }}
       animate={{ opacity: [0, 1, 0] }}

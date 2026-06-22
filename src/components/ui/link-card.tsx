@@ -18,7 +18,7 @@ const LinkCard = React.forwardRef<HTMLAnchorElement, LinkCardProps>(
         className={[
           'group relative flex h-72 w-full flex-col justify-between overflow-hidden',
           'rounded-2xl border border-gray-200 dark:border-white/10',
-          'bg-[#faf9f5] dark:bg-[#242018] p-7 shadow-sm no-underline',
+          'bg-[#FBF6F0] dark:bg-[#0D3A35] p-7 shadow-sm no-underline',
           className || '',
         ].join(' ')}
         initial={{ scale: 1, y: 0 }}
@@ -29,12 +29,12 @@ const LinkCard = React.forwardRef<HTMLAnchorElement, LinkCardProps>(
         {/* Step number + title */}
         <div className="z-10">
           <div className="flex items-center gap-3 mb-3">
-            <span className="w-7 h-7 rounded-full bg-[#c96442] text-white text-sm font-black flex items-center justify-center shrink-0">
+            <span className="w-7 h-7 rounded-full bg-[#276152] text-white text-sm font-black flex items-center justify-center shrink-0">
               {number}
             </span>
-            <h3 className="text-lg font-black text-[#3d3929] dark:text-[#f0ede6]">{title}</h3>
+            <h3 className="text-lg font-black text-[#0D3A35] dark:text-[#ECEFE9]">{title}</h3>
           </div>
-          <p className="text-sm text-[#3d3929]/60 dark:text-[#f0ede6]/55 max-w-[65%] leading-relaxed">
+          <p className="text-sm text-[#0D3A35]/60 dark:text-[#ECEFE9]/55 max-w-[65%] leading-relaxed">
             {description}
           </p>
         </div>

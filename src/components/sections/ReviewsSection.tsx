@@ -55,27 +55,27 @@ function StarRating() {
 
 export function ReviewsSection() {
   return (
-    <section className="bg-white dark:bg-[#242018] px-6 sm:px-10 py-20 sm:py-28">
+    <section className="bg-[#FBF6F0] dark:bg-[#07201C] px-6 sm:px-10 py-20 sm:py-28">
       <div className="max-w-6xl mx-auto">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[#c96442] mb-4">
+        <p className="text-xs font-semibold uppercase tracking-widest text-[#276152] dark:text-[#7BBFB0] mb-4">
           / отзывы
         </p>
         <div className="flex items-end justify-between mb-12 gap-4 flex-wrap">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#3d3929] dark:text-[#f0ede6]">
+            <h2 className="text-3xl sm:text-4xl font-black font-display text-[#0D3A35] dark:text-[#ECEFE9]">
               Что говорят покупатели
             </h2>
-            <p className="text-[#3d3929]/50 dark:text-[#f0ede6]/50 text-sm mt-2">Более 500 собранных наборов</p>
+            <p className="text-[#0D3A35]/50 dark:text-[#ECEFE9]/50 text-sm mt-2">Более 500 собранных наборов</p>
           </div>
           <div className="flex items-center gap-2">
             <StarRating />
-            <span className="text-sm font-bold text-[#3d3929] dark:text-[#f0ede6]">5.0</span>
+            <span className="text-sm font-bold text-[#0D3A35] dark:text-[#ECEFE9]">5.0</span>
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {REVIEWS.map((r, i) => (
-            <div key={i} className="rounded-2xl border border-gray-100 dark:border-white/10 dark:bg-[#242018] overflow-hidden hover:shadow-md dark:hover:shadow-md transition-shadow">
+            <div key={i} className="rounded-2xl border border-gray-100 dark:border-white/10 bg-white dark:bg-[#0D3A35]/60 overflow-hidden hover:shadow-md dark:hover:shadow-md transition-shadow">
               <div className="h-36 overflow-hidden">
                 <img
                   src={r.imageUrl}
@@ -87,10 +87,10 @@ export function ReviewsSection() {
               </div>
               <div className="p-5">
                 <StarRating />
-                <p className="text-sm text-[#3d3929]/70 dark:text-[#f0ede6]/70 leading-relaxed mt-3 mb-4">«{r.text}»</p>
+                <p className="text-sm text-[#0D3A35]/70 dark:text-[#ECEFE9]/70 leading-relaxed mt-3 mb-4">«{r.text}»</p>
                 <div>
-                  <span className="text-sm font-bold text-[#3d3929] dark:text-[#f0ede6]">{r.name}</span>
-                  <span className="text-xs text-[#3d3929]/40 dark:text-[#f0ede6]/40 ml-2">{r.city}</span>
+                  <span className="text-sm font-bold text-[#0D3A35] dark:text-[#ECEFE9]">{r.name}</span>
+                  <span className="text-xs text-[#0D3A35]/40 dark:text-[#ECEFE9]/40 ml-2">{r.city}</span>
                 </div>
               </div>
             </div>

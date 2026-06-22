@@ -18,6 +18,11 @@ export default {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
       },
+      fontFamily: {
+        display: ['Unbounded', 'sans-serif'],
+        body: ['Golos Text', 'sans-serif'],
+        sans: ['Golos Text', 'sans-serif'],
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',

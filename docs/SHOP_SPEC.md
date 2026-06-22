@@ -270,7 +270,7 @@
 
 ## 8. Страница отзывов (`/reviews`)
 
-По образцу BrickMe reviews page.
+По образцу https://brick.me/pages/reviews
 
 **Структура:**
 ```
